@@ -1,0 +1,154 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;\f1\fmodern\fcharset0 Courier-Oblique;}
+{\colortbl;\red255\green255\blue255;\red195\green123\blue90;\red23\green23\blue26;\red89\green158\blue96;
+\red174\green176\blue183;\red71\green149\blue242;\red72\green151\blue245;\red164\green160\blue78;\red185\green101\blue173;
+\red38\green157\blue169;}
+{\*\expandedcolortbl;;\csgenericrgb\c76471\c48235\c35294;\csgenericrgb\c9020\c9020\c10196;\csgenericrgb\c34902\c61961\c37647;
+\csgenericrgb\c68235\c69020\c71765;\csgenericrgb\c27843\c58431\c94902;\csgenericrgb\c28235\c59216\c96078;\csgenericrgb\c64314\c62745\c30588;\csgenericrgb\c72549\c39608\c67843;
+\csgenericrgb\c14902\c61569\c66275;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf2 \cb3 import \cf4 'package:flutter/material.dart'\cf5 ;\
+\
+\cf2 void \cf6 main\cf5 () => runApp(\cf2 const \cf7 MyApp\cf5 ());\
+\
+\cf2 class \cf5 MyApp \cf2 extends \cf5 StatelessWidget \{\
+  \cf2 const \cf5 MyApp(\{\cf2 super\cf5 .key\});\
+\
+  \cf8 @override\
+  \cf5 Widget \cf7 build\cf5 (BuildContext context) \{\
+    \cf2 return \cf7 MaterialApp\cf5 (\
+      title: \cf4 'Interactive UI'\cf5 ,\
+      debugShowCheckedModeBanner: \cf2 false\cf5 ,\
+      theme: \cf7 ThemeData\cf5 (\
+        primarySwatch: Colors.
+\f1\i \cf9 deepPurple
+\f0\i0 \cf5 ,\
+        scaffoldBackgroundColor: \cf2 const \cf7 Color\cf5 (\cf10 0xFFF4F4F4\cf5 ),\
+      ),\
+      home: \cf2 const \cf7 HomePage\cf5 (),\
+    );\
+  \}\
+\}\
+\
+\cf2 class \cf5 HomePage \cf2 extends \cf5 StatefulWidget \{\
+  \cf2 const \cf5 HomePage(\{\cf2 super\cf5 .key\});\
+\
+  \cf8 @override\
+  \cf5 State<HomePage> \cf7 createState\cf5 () => \cf7 _HomePageState\cf5 ();\
+\}\
+\
+\cf2 class \cf5 _HomePageState \cf2 extends \cf5 State<HomePage> \{\
+  int \cf9 _counter \cf5 = \cf10 0\cf5 ;\
+  bool \cf9 _showImage \cf5 = \cf2 false\cf5 ;\
+  \cf2 final \cf5 List<bool> \cf9 _taskStatus \cf5 = [\cf2 false\cf5 , \cf2 false\cf5 , \cf2 false\cf5 ];\
+\
+  \cf8 @override\
+  \cf5 Widget \cf7 build\cf5 (BuildContext context) \{\
+    \cf2 return \cf7 Scaffold\cf5 (\
+      appBar: \cf7 AppBar\cf5 (\
+        title: \cf2 const \cf7 Text\cf5 (\cf4 'Demo Page'\cf5 ),\
+        centerTitle: \cf2 true\cf5 ,\
+      ),\
+      body: \cf7 SingleChildScrollView\cf5 (\
+        padding: \cf2 const \cf7 EdgeInsets\cf5 .\cf7 all\cf5 (\cf10 16.0\cf5 ),\
+        child: \cf7 Column\cf5 (\
+          crossAxisAlignment: CrossAxisAlignment.\cf9 start\cf5 ,\
+          children: [\
+            sectionTitle(\cf4 '1. Counter'\cf5 ),\
+            \cf2 const \cf7 SizedBox\cf5 (height: \cf10 8\cf5 ),\
+            \cf7 Text\cf5 (\cf4 'Count: \cf5 $\cf9 _counter\cf4 '\cf5 , style: \cf2 const \cf7 TextStyle\cf5 (fontSize: \cf10 18\cf5 )),\
+            \cf2 const \cf7 SizedBox\cf5 (height: \cf10 8\cf5 ),\
+            \cf7 ElevatedButton\cf5 .\cf7 icon\cf5 (\
+              icon: \cf2 const \cf7 Icon\cf5 (Icons.
+\f1\i \cf9 add
+\f0\i0 \cf5 ),\
+              label: \cf2 const \cf7 Text\cf5 (\cf4 "Increment"\cf5 ),\
+              style: ElevatedButton.
+\f1\i \cf7 styleFrom
+\f0\i0 \cf5 (\
+                backgroundColor: Colors.
+\f1\i \cf9 deepPurple
+\f0\i0 \cf5 ,\
+                foregroundColor: Colors.
+\f1\i \cf9 white
+\f0\i0 \cf5 ,\
+              ),\
+              onPressed: () \{\
+                setState(() => \cf9 _counter\cf5 ++);\
+              \},\
+            ),\
+            \cf2 const \cf7 Divider\cf5 (height: \cf10 40\cf5 , thickness: \cf10 1.5\cf5 ),\
+\
+            sectionTitle(\cf4 '2. Show/Hide Image'\cf5 ),\
+            \cf2 const \cf7 SizedBox\cf5 (height: \cf10 8\cf5 ),\
+            \cf7 SwitchListTile\cf5 (\
+              title: \cf2 const \cf7 Text\cf5 (\cf4 "Show Image"\cf5 ),\
+              value: \cf9 _showImage\cf5 ,\
+              activeColor: Colors.
+\f1\i \cf9 deepPurple
+\f0\i0 \cf5 ,\
+              onChanged: (val) \{\
+                setState(() => \cf9 _showImage \cf5 = val);\
+              \},\
+            ),\
+            \cf2 const \cf7 SizedBox\cf5 (height: \cf10 8\cf5 ),\
+            \cf2 if \cf5 (\cf9 _showImage\cf5 )\
+              \cf7 ClipRRect\cf5 (\
+                borderRadius: \cf7 BorderRadius\cf5 .\cf7 circular\cf5 (\cf10 12\cf5 ),\
+                child: \cf7 Image\cf5 .\cf7 network\cf5 (\
+                  \cf4 'https://images.unsplash.com/photo-1508780709619-79562169bc64'\cf5 ,\
+                  height: \cf10 200\cf5 ,\
+                  width: double.
+\f1\i \cf9 infinity
+\f0\i0 \cf5 ,\
+                  fit: BoxFit.\cf9 cover\cf5 ,\
+                ),\
+              ),\
+            \cf2 const \cf7 Divider\cf5 (height: \cf10 40\cf5 , thickness: \cf10 1.5\cf5 ),\
+\
+            sectionTitle(\cf4 '3. Task List'\cf5 ),\
+            \cf2 const \cf7 SizedBox\cf5 (height: \cf10 8\cf5 ),\
+            ...\cf7 List\cf5 .\cf7 generate\cf5 (\cf9 _taskStatus\cf5 .\cf9 length\cf5 , (index) \{\
+              \cf2 return \cf7 CheckboxListTile\cf5 (\
+                controlAffinity: ListTileControlAffinity.\cf9 leading\cf5 ,\
+                title: \cf7 Text\cf5 (\cf4 'Task \cf5 $\{index + \cf10 1\cf5 \}\cf4 : \cf5 $\{taskText(index)\}\cf4 '\cf5 ),\
+                value: \cf9 _taskStatus\cf5 [index],\
+                activeColor: Colors.
+\f1\i \cf9 deepPurple
+\f0\i0 \cf5 ,\
+                onChanged: (val) \{\
+                  setState(() => \cf9 _taskStatus\cf5 [index] = val!);\
+                \},\
+              );\
+            \}),\
+          ],\
+        ),\
+      ),\
+    );\
+  \}\
+\
+  Widget \cf7 sectionTitle\cf5 (String title) \{\
+    \cf2 return \cf7 Text\cf5 (\
+      title,\
+      style: \cf2 const \cf7 TextStyle\cf5 (fontSize: \cf10 20\cf5 , fontWeight: FontWeight.
+\f1\i \cf9 bold
+\f0\i0 \cf5 ),\
+    );\
+  \}\
+\
+  String \cf7 taskText\cf5 (int index) \{\
+    \cf2 switch \cf5 (index) \{\
+      \cf2 case \cf10 0\cf5 :\
+        \cf2 return \cf4 'Finish Flutter UI'\cf5 ;\
+      \cf2 case \cf10 1\cf5 :\
+        \cf2 return \cf4 'Submit assignment'\cf5 ;\
+      \cf2 case \cf10 2\cf5 :\
+        \cf2 return \cf4 'Call friend'\cf5 ;\
+      \cf2 default\cf5 :\
+        \cf2 return \cf4 ''\cf5 ;\
+    \}\
+  \}\
+\}\
+}
